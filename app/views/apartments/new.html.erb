@@ -1,0 +1,24 @@
+<h1 class="text-center text-secondary my-5">New Apartment</h1>
+<div class="container">
+<%= form_with(model: @apartment) do |form| %>
+  <% if @apartment.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@apartment.errors.count, "error") %> prohibited this building from being saved:</h4>
+
+      <ul>
+        <% @apartment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <%= form.text_field :number, class:'form-control', placeholder: 'Number' %><br>
+  <br><br>
+  <div class="text-center">
+  <%= form.submit 'submit', class: 'btn btn-danger' %>
+  </div>
+  <br>
+<% end %>
+</div>
