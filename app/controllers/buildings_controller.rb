@@ -11,7 +11,7 @@ class BuildingsController < ApplicationController
   end
 
   def create
-    @building = Building.new(params[:name])
+    @building = Building.new(building_params)
 
     respond_to do |format|
       if @building.save
