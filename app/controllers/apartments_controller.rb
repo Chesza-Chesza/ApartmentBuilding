@@ -9,15 +9,16 @@ class ApartmentsController < ApplicationController
 
   def new
     @apartment = Apartment.new
-    @building = Building.pluck(:id, :name)
+    @building = Building.find(params[:building_id])
   end
 
   def create
-    @apartment = Building.new(params[:number])
+    building = Building.find(params[:building_id])
+    @apartment = Apartment.new(apartment_params.merge(building_id: building.id))
 
     respond_to do |format|
       if @apartment.save
-        format.html { redirect_to @apartment, notice: "Apartment was successfully created." }
+        format.html { redirect_to building_apartments_path(building.id), notice: "Apartment was successfully created." }
         format.json { render :show, status: :created, location: @apartment }
       else
         format.html { render :new, status: :unprocessable_entity }

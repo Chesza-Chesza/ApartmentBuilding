@@ -1,5 +1,10 @@
 <h1 class="text-center text-secondary my-5">Building <%= @building.name %></h1>
 
 <div class="text-center">
-  <td><%=link_to 'show departments', building_apartments_path(@building.id), class: 'btn btn-danger'%></td>
+  <%=link_to 'show departments', building_apartments_path(@building.id), class: 'btn btn-danger'%>
+  <%=link_to 'new apartment', new_building_apartment_path(@building.id), class: 'btn btn-danger'%>
+</div>
+<br>
+<div class="text-center">
+  <%=link_to 'back', buildings_path, class: 'btn btn-dark'%>
 </div>

@@ -1,6 +1,6 @@
 <h1 class="text-center text-secondary my-5">New Apartment</h1>
 <div class="container">
-<%= form_with(model: @apartment) do |form| %>
+<%= form_with(model: [@building, @apartment]) do |form| %>
   <% if @apartment.errors.any? %>
     <div id="error_explanation">
       <h4><%= pluralize(@apartment.errors.count, "error") %> prohibited this building from being saved:</h4>
