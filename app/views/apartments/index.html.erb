@@ -9,15 +9,13 @@
   <tbody>
     <% @apartments.each do |apartment| %>
     <tr>
-      <th scope="row">1</th>
         <td><%= apartment.number %></td>
         <td><%= apartment.building.name %></td>
-        <td><%=link_to 'Show', apartment%></td>
-    </tr> 
+      </tr> 
     <% end %>
   </tbody>
 </table>
 
 <div class="text-center my-4">
-<%= link_to 'New Apartment', new_apartment_path, class: 'btn btn-danger' %>
+<%#= link_to 'New Apartment', new_apartment_path, class: 'btn btn-danger' %>
 </div>

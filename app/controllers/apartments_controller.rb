@@ -3,7 +3,8 @@ class ApartmentsController < ApplicationController
   #before_action :set_building, only: %i[ create edit update ]
 
   def index
-    @apartments = Apartment.all
+    @building = Building.find(params[:building_id])
+    @apartments = @building.apartments
   end
 
   def new
