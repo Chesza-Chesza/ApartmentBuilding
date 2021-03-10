@@ -27,6 +27,7 @@ class ApartmentsController < ApplicationController
   end
 
   def show
+    @building = Building.find(params[:building_id])
     @apartment = Apartment.find(params[:id])
   end
 
