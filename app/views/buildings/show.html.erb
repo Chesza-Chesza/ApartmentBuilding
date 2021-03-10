@@ -7,7 +7,8 @@
   </tr> </thead>
 
   <tbody>
-    <% @building.apartments.each do |building| %>
+    <% @building.apartments.present? %>
+    <% @building.apartments.each do |apartment| %>
     <tr>
     <th scope="row">1</th>
       <td><%= @building.name %></td>

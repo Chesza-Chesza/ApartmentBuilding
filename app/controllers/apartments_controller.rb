@@ -1,4 +1,7 @@
 class ApartmentsController < ApplicationController
+  before_action :set_apartment, only: %i[ show edit update destroy ]
+  #before_action :set_building, only: %i[ create edit update ]
+
   def index
     @apartments = Apartment.all
   end
@@ -27,8 +30,11 @@ class ApartmentsController < ApplicationController
   end
 
   private
+  def set_apartment
+    @apartment = Apartment.pluck(:name, :id)
+  end
   #Strong params
   def apartment_params
-    params.require(:apartment).permit(:number)
+    params.require(:apartment).permit(:number, :building_id)
   end
 end

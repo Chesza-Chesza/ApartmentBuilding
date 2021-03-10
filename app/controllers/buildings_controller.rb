@@ -1,4 +1,6 @@
 class BuildingsController < ApplicationController
+  before_action :set_building, only: %i[ show edit update destroy ]
+  
   def index
     @buildings = Building.all
   end
@@ -27,6 +29,9 @@ class BuildingsController < ApplicationController
   end
 
   private
+  def set_building
+    @building = Building.find(params[:id])
+  end
   #Strong params
   def building_params
     params.require(:building).permit(:name)
